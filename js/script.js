@@ -20,10 +20,10 @@ var userLastName;
 var isContent;
 
 do {
-    userLastName = prompt("Inserisci il tuo cognome").trim();
+    userLastName = prompt("Inserisci il tuo cognome").trim().toLowerCase();
     isContent = false;
     for (i = 0; i < surnames.length; i++) {
-        if (userLastName.toLowerCase() === surnames[i].toLowerCase()) {
+        if (userLastName === surnames[i].toLowerCase()) {
             isContent = true;
             alert("Cognome già presente");
         }
@@ -44,9 +44,9 @@ console.table(surnames);
 for (var i = 0; i < surnames.length; i++) {
     console.log(i + 1, surnames[i]);
     listItem += "<li> Posizione " + (i + 1) + ": " + surnames[i] + "</li>";
-    if (userLastName.toLowerCase() === surnames[i].toLowerCase()) {
+    if (userLastName === surnames[i].toLowerCase()) {
         console.log("Il tuo cognome si trova in posizione: " + (i + 1));
-        positionItem = "Il tuo cognome si trova in posizione: " + (i + 1);
+        positionItem = "Il tuo cognome '" + surnames[i] + "' si trova in posizione: " + (i + 1);
     }
 }
 
