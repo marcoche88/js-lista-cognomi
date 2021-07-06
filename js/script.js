@@ -43,7 +43,7 @@ console.table(surnames);
 // stampa lista ordinata e posizione cognome inserito
 for (var i = 0; i < surnames.length; i++) {
     console.log(i + 1, surnames[i]);
-    listItem += "<li>" + (i + 1) + " " + surnames[i] + "</li>";
+    listItem += "<li> Posizione " + (i + 1) + ": " + surnames[i] + "</li>";
     if (userLastName.toLowerCase() === surnames[i].toLowerCase()) {
         console.log("Il tuo cognome si trova in posizione: " + (i + 1));
         positionItem = "Il tuo cognome si trova in posizione: " + (i + 1);
