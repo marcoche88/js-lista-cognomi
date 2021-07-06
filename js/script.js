@@ -30,8 +30,10 @@ do {
     }
 } while (!userLastName || isContent);
 
-// capitalize cognome e inserimento nell'array 
-surnames.push(userLastName[0].toUpperCase() + userLastName.slice(1));
+// capitalize cognome e inserimento nell'array
+var userCapitalize;
+userCapitalize = userLastName[0].toUpperCase() + userLastName.slice(1);
+surnames.push(userCapitalize);
 
 console.table(surnames);
 
@@ -44,11 +46,12 @@ console.table(surnames);
 for (var i = 0; i < surnames.length; i++) {
     console.log(i + 1, surnames[i]);
     listItem += "<li> Posizione " + (i + 1) + ": " + surnames[i] + "</li>";
-    if (userLastName === surnames[i].toLowerCase()) {
-        console.log("Il tuo cognome si trova in posizione: " + (i + 1));
-        positionItem = "Il tuo cognome '" + surnames[i] + "' si trova in posizione: " + (i + 1);
-    }
 }
+
+console.log("il tuo cognome si trova in posizione: " + (surnames.indexOf(userCapitalize) + 1));
+positionItem = "Il tuo cognome '" + userCapitalize + "' si trova in posizione: " + (surnames.indexOf(userCapitalize) + 1);
+
+
 
 // stampa in pagina
 
