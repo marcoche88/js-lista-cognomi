@@ -11,10 +11,17 @@ var lastNames = ["Bianchi", "Neri", "Rossi", "Verdi", "Gialli"];
 
 // input utente e validazione
 var userLastName;
+var isContent;
 
 do {
     userLastName = prompt("Inserisci il tuo cognome").trim();
-} while (!userLastName || userLastName.length < 2);
+    isContent = false;
+    for (i = 0; i < lastNames.length; i++) {
+        if (userLastName.toLowerCase() === lastNames[i].toLowerCase()) {
+            isContent = true;
+        }
+    }
+} while (!userLastName || isContent);
 
 // capitalize cognome e inserirlo nell'array 
 lastNames.push(userLastName[0].toUpperCase() + userLastName.slice(1));
