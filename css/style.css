@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+ol li {
+    list-style-type: none;
+    padding: 10px;
+    color: darkblue;
+}
+
+p {
+    padding: 20px;
+    border: 1px dashed darkblue;
+    text-align: center;
+}

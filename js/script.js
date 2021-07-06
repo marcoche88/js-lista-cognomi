@@ -6,8 +6,14 @@ Consegna:
 4. scrivi anche la posizione "umana" (partendo da 1) della lista in cui il nuovo utente si trova
 */
 
+// variabili
+var list = document.getElementById("list-surname");
+var position = document.getElementById("position-surname");
+var listItem = "";
+var positionItem;
+
 // creazione array
-var lastNames = ["Bianchi", "Neri", "Rossi", "Verdi", "Gialli"];
+var surnames = ["Bianchi", "Neri", "Rossi", "Verdi", "Gialli"];
 
 // input utente e validazione
 var userLastName;
@@ -16,27 +22,35 @@ var isContent;
 do {
     userLastName = prompt("Inserisci il tuo cognome").trim();
     isContent = false;
-    for (i = 0; i < lastNames.length; i++) {
-        if (userLastName.toLowerCase() === lastNames[i].toLowerCase()) {
+    for (i = 0; i < surnames.length; i++) {
+        if (userLastName.toLowerCase() === surnames[i].toLowerCase()) {
             isContent = true;
+            alert("Cognome già presente");
         }
     }
 } while (!userLastName || isContent);
 
-// capitalize cognome e inserirlo nell'array 
-lastNames.push(userLastName[0].toUpperCase() + userLastName.slice(1));
+// capitalize cognome e inserimento nell'array 
+surnames.push(userLastName[0].toUpperCase() + userLastName.slice(1));
 
-console.table(lastNames);
+console.table(surnames);
 
-// ordinare alfabeticamente array
-lastNames.sort();
+// ordinamento alfabetico array
+surnames.sort();
 
-console.table(lastNames);
+console.table(surnames);
 
 // stampa lista ordinata e posizione cognome inserito
-for (var i = 0; i < lastNames.length; i++) {
-    console.log(i + 1, lastNames[i]);
-    if (userLastName.toLowerCase() === lastNames[i].toLowerCase()) {
-        console.log("il tuo cognome si trova in posizione: " + (i + 1));
+for (var i = 0; i < surnames.length; i++) {
+    console.log(i + 1, surnames[i]);
+    listItem += "<li>" + (i + 1) + " " + surnames[i] + "</li>";
+    if (userLastName.toLowerCase() === surnames[i].toLowerCase()) {
+        console.log("Il tuo cognome si trova in posizione: " + (i + 1));
+        positionItem = "Il tuo cognome si trova in posizione: " + (i + 1);
     }
 }
+
+// stampa in pagina
+
+list.innerHTML = listItem;
+position.innerText = positionItem;
